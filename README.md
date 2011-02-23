@@ -20,13 +20,13 @@ How to install
 
 * Open the Configuration tab and paste the following in the 'Plugin configuration' area : 
 
-&lang=Plugin language;text;en
-&tablePrefix=Plugin table prefix;text;
+	&lang=Plugin language;text;en
+	&tablePrefix=Plugin table prefix;text;
 
 * Open the System events tab and check the following events : 
--- OnBeforeDocFormSave
--- OnPageNotFound
--- OnDocFormRender
+	- OnBeforeDocFormSave
+	- OnPageNotFound
+	- OnDocFormRender
 
 
 How to use
