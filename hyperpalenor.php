@@ -208,25 +208,10 @@ if (!function_exists('splitUrl'))
 {
 function splitUrl()
 {
-	// récupération de l'url de la page (sans paramétres)
-	// ex. : http://www.example.com/path/to/my/page.html
-	$script_uri_t = $_SERVER['SCRIPT_URI'];
 	
 	// récupération du chemin et des éventuels paramétres
 	// ex. : /path/to/my/page.html?fruit=apple&color=white
 	$request_uri_t = $_SERVER['REQUEST_URI'];
-	
-	// récupération du "préfixe" de l'url
-	preg_match("`([^/]+\/\/[^/]+)`", $script_uri_t, $matches_at);
-	$urlPrefix_t = $matches_at[1];
-	unset($matches_at);
-	// si vide, on sort
-	if (empty($urlPrefix_t)) {
-		// debug log
-		debugLog("Error while attempting to retrieve url suffix");
-		// on sort
-		return false;
-	}
 
 	// récupération du chemin, de l'extension et du "suffixe" de l'url
 	// bto 20071119 (v8) : l'extension et le suffixe ne sont plus obligatoires
