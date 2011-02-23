@@ -60,8 +60,8 @@ function debugLog($errorMsg_t)
 		// paramétres
 		$msg_t = $modx->db->escape($errorMsg_t);
 		$internalKey_i = "1";
-		$username_t = "admin";
-		$action_i = "0";
+		$username_t = "HyperPalenor plugin";
+		$action_i = "Action";
 		$itemname_t = "HyperPalenor - debug";
 		// on écrit dans le log
 		$GLOBALS['log']->initAndWriteLog($msg_t, $internalKey_i, $username_t, $action_i, "", $itemname_t);
