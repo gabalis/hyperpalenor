@@ -1,13 +1,9 @@
 <?php
 
 /*
- *  Name: HyperPalenor
- *  Description: <strong>v13</strong> Follows moved and renamed documents
- *  Written By Benjamin Toussaint (benjamin@hypernovae.net)
- *  For: MODx CMS (modxcms.com)
- *  Created: June 20, 2007
- *  LastModified: May 15, 2008
- *  Version: 13
+ *  HyperPalenor, a plugin for MODx Evolution
+ *
+ *  Redirects to the new URL of moved and renamed documents
  *
  *  Events:
  *  - OnBeforeDocFormSave
@@ -18,32 +14,23 @@
  *  &lang=Plugin language;text;en
  *  &tablePrefix=Plugin table prefix;text;
  *
- *  Versions
- *  - v2 : affichage des redirections dans le formulaire d'édition (OnDocFormRender)
- *  - v3 : gestion de la suppression et de l'ajout de redirections (OnBeforeDocFormSave)
- *  - v4 : ajout du créateur de la redirection dans la table des redirections
- *  - V5 : on n'utilise plus la redirection MODx qui renvoit le header 302, on renvoit le 301
- *  - v6 : enregistrement des urls qui ne ménent é rien dans la base de données
- *  - v7 : changement du traitement des redirections manuelles pour permettre les parametres
- *  - v8 : amélioration de la recherche d'url avec "/" et avec préfixe et suffixe
- *  - v9 : correction pour compatibilité avec PHP 5
- *  - v10 : gestion du déplacement avec le menu "déplacer" ("new_parent" et pas "parent" é récupérer en POST)
- *  - v11 : nouvelles chaines traduites
- *  - v12 : vérification de l'existence de fonctions (plugin appelé plusieurs fois de suite ?)
- *  - v13 : déplacement de la fonction "debugLog()" en début de document
+ *  Original idea by Matthieu Baudoux
+ *  Created: June 20, 2007 by Benjamin Toussaint
+ *  Maintained since February 2011 by Matthieu Baudoux 
+ *
  */
 
 
 // debugLog() : loggue les erreurs pour un debug facile
 
-// v13 :  déplacement de la fonction puisqu'elle est appelée au début déjé
-// v12 : vérification existence
+// mode DEBUG ?
+define("DEBUG", false);
+
 if (!function_exists('debugLog'))
 {
 function debugLog($errorMsg_t)
 {   
 	global $modx;
-	define('DEBUG', TRUE);
 	// si mode DEBUG
 	if (DEBUG === true) {
 		
@@ -73,10 +60,6 @@ function debugLog($errorMsg_t)
 /*************************
 		Paramétres
 **************************/
-
-// mode DEBUG ?
-define("DEBUG", false);
-
 
 // on inclut la classe "logHandler" de MODx
 include_once dirname(__FILE__).'/log.class.inc.php';
