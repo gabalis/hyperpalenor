@@ -43,7 +43,7 @@ if (!function_exists('debugLog'))
 function debugLog($errorMsg_t)
 {   
 	global $modx;
-	DEBUG = TRUE;
+	define('DEBUG', TRUE);
 	// si mode DEBUG
 	if (DEBUG === true) {
 		
