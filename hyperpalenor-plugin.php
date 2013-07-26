@@ -5,6 +5,8 @@
  *
  *  Redirects to the new URL of moved and renamed documents
  *
+ *  v14
+ *
  *  Events:
  *  - OnBeforeDocFormSave
  *  - OnPageNotFound
@@ -275,6 +277,11 @@ function getCurrentUrlFromOldOne($url_t)
 				// debug log
 				debugLog("Error while attempting to add an entry for the specified URL");
 			}
+		}
+		
+		if($url_t == $urlRedirection_t)
+		{
+			return false;
 		}
 		// on renvoit l'url
 		return $urlRedirection_t;

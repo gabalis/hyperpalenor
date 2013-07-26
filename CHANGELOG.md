@@ -1,4 +1,9 @@
 
+v0.15
+=====
+* does not redirect to same address as original, to prevent loops, if ever it wanted to. 
+
+
 
 v0.14 - 2011-02-23
 =====
